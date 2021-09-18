@@ -4,7 +4,7 @@ function CustNav() {
             <div id="navbar" role="navigation" className=" navbar-expand-lg">
                 <div id="navigation" className="navbar-collapse collapse">
                     <ul className="main-nav nav ">
-                        <li className="nav-item dropdown menu-large"><a href="#" data-toggle="dropdown">Categories<b
+                        <li className="nav-item menu-large"><a href="#" data-toggle="dropdown">Categories<b
                             className="caret"></b></a>
                             <ul className="dropdown-menu megamenu">
                                 <li>
@@ -12,9 +12,9 @@ function CustNav() {
                                         <div className="col-lg-3 col-md-6">
                                             <h5>Shortcodes</h5>
                                             <ul className="list-unstyled mb-3">
-                                                <li className="nav-item"><a href="template-accordions.html" className="nav-link">Accordions</a></li>
-                                                <li className="nav-item"><a href="template-alerts.html" className="nav-link">Alerts</a></li>
-                                                <li className="nav-item"><a href="template-buttons.html" className="nav-link">Buttons</a></li>
+                                                <li className="nav-item"><link href="template-accordions.html" className="nav-link">Accordions</link></li>
+                                                <li className="nav-item"><link href="template-alerts.html" className="nav-link">Alerts</link></li>
+                                                <li className="nav-item"><link href="template-buttons.html" className="nav-link">Buttons</link></li>
                                                 <li className="nav-item"><a href="template-content-boxes.html" className="nav-link">Content boxes</a>
                                                 </li>
                                                 <li className="nav-item"><a href="template-blocks.html" className="nav-link">Horizontal blocks</a>

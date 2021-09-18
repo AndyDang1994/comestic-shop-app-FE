@@ -1,6 +1,7 @@
 import { authHeader } from '../../_helper/AuthenHeader';
 import { getLoadingProcAction } from '../actions/ResultActionEpics';
 import { CommonUtils } from '../../utils/apiCallerUtils';
+import Header from '../../layout/header/Header';
 
 const getAllProducts=()=>{
 
@@ -32,7 +33,8 @@ const getProductByParams=(inputParams)=>{
 const editProduct = (payload, inputParams)=>{
     const requestOptions = {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        //headers: { 'Content-Type': 'application/json' },
+        headers :authHeader(),
         body: JSON.stringify(payload)
     };
 
@@ -47,7 +49,8 @@ const editProduct = (payload, inputParams)=>{
 const createProduct = (payload)=>{
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        mode: 'cors',
+        headers: authHeader(),
         body: JSON.stringify(payload)
     };
 
@@ -62,7 +65,8 @@ const createProduct = (payload)=>{
 const deleteProduct = (payload)=>{
     const requestOptions = {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        //headers: { 'Content-Type': 'application/json' },
+        headers :authHeader(),
         body: JSON.stringify(payload)
     };
 

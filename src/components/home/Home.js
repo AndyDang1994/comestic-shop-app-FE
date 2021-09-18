@@ -158,7 +158,7 @@ class Home extends Component {
                             <div id="tab1" className="tab-pane active">
                                 <div className="products-slick" data-nav="#slick-nav-1">
                                     <div className="row">
-                                        {this.props.products.map(
+                                        {this.props.products != null && this.props.products.map(
                                             (product, i) => {
                                                 return (
                                                     <div className="col-12 col-sm-6 col-md-4 col-lg-3" key={i}>

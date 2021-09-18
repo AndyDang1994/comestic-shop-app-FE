@@ -45,7 +45,7 @@ const authreducer = (state = newAuth, action) => {
     case ActionTypes.LOGIN_SUCCESS:
       const loginAuthState = {
         isLoggedIn: true,
-        user: action.payload,
+        user: action.payload.result,
       };
       // axios.defaults.headers.common[
       //   "Authorization"

@@ -28,6 +28,7 @@ import Photo from '../../common/photo';
 import EditThumbnailsDialog from '../../common/EditThumbnailsDialog';
 import { config } from '../../../config/config';
 import ComboBox from '../../common/ComboBox';
+import Header from '../../../layout/header/Header';
 
 
 class ManageProdList extends Component {
@@ -395,6 +396,7 @@ class ManageProdList extends Component {
         return (
 
             <BlockUI blocked={this.props.isLocked} fullScreen template={<ProgressSpinner />}>
+                <Header></Header>
                 {this.state.isAlert && this.props.alert.type != null && <CommonMessage severity={this.props.alert.type} detail={this.props.alert.message} handleClearAlert={this.handleClearAlert} />}
                 <div className="datatable-crud-demo">
                     <Toast ref={(el) => this.toast = el} />

@@ -637,7 +637,8 @@ table input[type="number"] {
 .top-bar .contact-info {
   background: rgb(206, 204, 204);
   /* margin-right: 20px; */
-  height: 30px;
+  align-items: center;
+  height: 40px;
 }
 
 .top-bar .contact-info a {
@@ -746,7 +747,7 @@ header.nav-holder.sticky {
 
 #navbar .menu-large .megamenu {
   padding: 20px;
-  width: 100%;
+  width: 50%;
   max-width: 1140px;
   left: 50%;
   -webkit-transform: translateX(-50%);

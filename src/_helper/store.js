@@ -1,6 +1,8 @@
 import { applyMiddleware, combineReducers, compose, createStore } from "redux";
+import { persistStore, persistReducer } from "redux-persist";
 import authreducer from "../redux/reducers/AuthReducer";
 import thunk from "redux-thunk";
+import storage from "redux-persist/lib/storage";
 import authErrorReducer from "../redux/reducers/AuthErrorReducer";
 import { ProductReducer } from "../redux/reducers/ProductReducer";
 import { LoadingReducer } from "../redux/reducers/loadingToggleReducer";
@@ -11,8 +13,15 @@ import { cloudinaryReducer } from "../redux/reducers/CloudinaryReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
+const persistConfig = {
+  key: 'authState',
+  storage: storage,
+  whitelist: ['authState']
+};
+
 const rootReducer = combineReducers({
   authState: authreducer,
+  //authState:persistReducer(persistConfig, authreducer),
   authError: authErrorReducer,  
   AllProducts : ProductReducer,
   loading : LoadingReducer,
@@ -20,11 +29,13 @@ const rootReducer = combineReducers({
   MetaData : MetaDataReducer,
   cloudinaryPhoto : cloudinaryReducer
 });
-
+const persistedReducer = persistReducer(persistConfig, rootReducer)
 const store = createStore(
-  rootReducer,
+ // rootReducer,
+  persistedReducer,
   composeEnhancers(applyMiddleware(thunk))
   //composeEnhancers(applyMiddleware(epicMiddleware))
 );
 //epicMiddleware.run(rootEpic);
 export default store;
+export const persistor = persistStore(store);

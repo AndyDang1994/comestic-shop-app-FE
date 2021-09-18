@@ -25,6 +25,16 @@ function login(payload){
     function failure(error) { return { type: ActionTypes.LOGOUT_FAIL, payload : error } }
 }
 
+function logout(){
+    return dispatch => {
+        dispatch(success(''));
+        history.push('/');
+    };
+    //function request(user) { return { type: ActionTypes.LOGIN_PROCESS, payload : user } }
+    function success(user) { return { type: ActionTypes.LOGOUT_SUCCESS, payload : user } }
+}
+
 export const userActions ={
-    login
+    login,
+    logout
 }

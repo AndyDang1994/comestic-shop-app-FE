@@ -1,11 +1,14 @@
-
+import store from "../_helper/store";
 
 export function authHeader() {
     // return authorization header with jwt token
-    let user = JSON.parse(localStorage.getItem('user'));
+    let userState =  store.getState();
+    let user = userState.authState.user
 
     if (user && user.token) {
-        return { 'Authorization': 'Bearer ' + user.token };
+        return { 'Content-Type': 'application/json',
+                 'Access-Control-Allow-Origin':'*',
+                 'Authorization': 'Bearer ' + user.token };
     } else {
         return {};
     }
