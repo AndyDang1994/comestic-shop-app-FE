@@ -287,7 +287,7 @@ class EditThumbnailsDialog extends Component {
                         <div className="p-formgrid p-grid">
                             <div className="p-field p-col">
                                 <label htmlFor="price">Price</label>
-                                <InputNumber id="price" onValueChange={(e) => this.onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" />
+                                <InputNumber id="price" onValueChange={(e) => this.onInputNumberChange(e, 'price')} mode="currency" currency="VND" locale="it-IT" />
                             </div>
                             <div className="p-field p-col">
                                 <label htmlFor="quantity">Quantity</label>

@@ -878,6 +878,7 @@ textarea.input {
 
 .product .product-img {
   position: relative;
+  width: 100%;
 }
 
 .product .product-img>img {
@@ -2196,6 +2197,16 @@ textarea.input {
   position: relative;
   padding-top: 10px;
 }
+
+.search-component{
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.search-component .in-line{
+  display: inline-block;
+}
+
 .owl-flashsell{
   padding-left: 10px;
   padding-right: 10px;

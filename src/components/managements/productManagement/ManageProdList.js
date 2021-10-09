@@ -29,6 +29,7 @@ import EditThumbnailsDialog from '../../common/EditThumbnailsDialog';
 import { config } from '../../../config/config';
 import ComboBox from '../../common/ComboBox';
 import Header from '../../../layout/header/Header';
+import { ContactInfor } from '../../../layout/header/ContactInfor';
 
 
 class ManageProdList extends Component {
@@ -150,7 +151,8 @@ class ManageProdList extends Component {
 
 
     formatCurrency(value) {
-        return (value == null ? "0" : value).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        // return (value == null ? "0" : value).toLocaleString('en-US', { style: 'currency', currency: 'USD' });
+        return (value == null ? "0" : value).toLocaleString('it-IT', { style: 'currency', currency: 'VND' });
     }
 
     openNew() {
@@ -396,7 +398,8 @@ class ManageProdList extends Component {
         return (
 
             <BlockUI blocked={this.props.isLocked} fullScreen template={<ProgressSpinner />}>
-                <Header></Header>
+                {/* <Header></Header> */}
+                <ContactInfor  isLoggedIn={this.props.auth.isLoggedIn}/>
                 {this.state.isAlert && this.props.alert.type != null && <CommonMessage severity={this.props.alert.type} detail={this.props.alert.message} handleClearAlert={this.handleClearAlert} />}
                 <div className="datatable-crud-demo">
                     <Toast ref={(el) => this.toast = el} />
@@ -445,7 +448,8 @@ class ManageProdList extends Component {
                         <div className="p-formgrid p-grid">
                             <div className="p-field p-col">
                                 <label htmlFor="price">Price</label>
-                                <InputNumber id="price" value={this.state.product.price} onValueChange={(e) => this.onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" />
+                                {/* <InputNumber id="price" value={this.state.product.price} onValueChange={(e) => this.onInputNumberChange(e, 'price')} mode="currency" currency="USD" locale="en-US" /> */}
+                                <InputNumber id="price" value={this.state.product.price} onValueChange={(e) => this.onInputNumberChange(e, 'price')} mode="currency" currency="VND" locale="it-IT" />
                             </div>
                             <div className="p-field p-col">
                                 <label htmlFor="quantity">Quantity</label>
@@ -506,7 +510,8 @@ const mapStateToProps = (state) => {
         type: state.AllProducts.type,
         isLocked: state.loading.isLocked,
         alert: state.alert,
-        metaData: state.MetaData
+        metaData: state.MetaData,
+        auth: state.authState,
     };
 };
 

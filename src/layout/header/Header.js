@@ -6,7 +6,7 @@ import Login from '../../components/authen/Login';
 import AdminNav from '../../components/managements/AdminNav';
 import { LogOutAuthAction } from "../../redux/actions/AuthAction";
 import ErrorHandler from "../../components/error/ErrorHandler";
-import AvatarComp from '../../components/authen/AvatarComp';
+import { ContactInfor } from './ContactInfor';
 
 
 function Header(props) {
@@ -19,7 +19,7 @@ function Header(props) {
                 errorHandler={errorHandler || { hasError: false, message: "" }}
             />
             <div className="top-bar align-items-center">
-                <div className="contact-info">
+                {/* <div className="contact-info">
                     <div className="container">
                         <div className="row d-flex contact-info">
                             <div className="col-md-6 d-md-block d-none">
@@ -37,23 +37,13 @@ function Header(props) {
                                         </div>
                                     </div>
                                 ) : (
-                                    // <React.Fragment>
-                                    //     <h5>{auth.user.name}</h5>
-                                    //     <button
-                                    //         className="btn btn-danger btn-sm mx-2"
-                                    //         onClick={() => {
-                                    //             logout(history);
-                                    //         }}
-                                    //     >
-                                    //         Log Out
-                                    //     </button>
-                                    // </React.Fragment>
                                     <AvatarComp/>
                                 )}
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
+                <ContactInfor isLoggedIn={auth.isLoggedIn}/>
                 <div className="search-component">
                     <div className="container">
                         <div className="row">

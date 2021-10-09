@@ -1,47 +1,38 @@
 //import './App.css';
 import { CloudinaryContext } from "cloudinary-react";
-import { history } from "./_helper/history";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LandingPage from "./components/home/LandingPage";
 import ManageProdList from './components/managements/productManagement/ManageProdList'
+import { PrivateAuthen } from "./_helper/PrivateAuthen";
 import { connect } from "react-redux";
+import ManagePromotion from "./components/managements/productManagement/ManagePromotion"
 
 function App(props) {
-  // requireAuth = (nextState,replace)=>{
-  //   if(!this.props.userInfor.isLoggedIn) 
-  //    replace('/');
-  // }
+  const {userInfor} = props
   return (
     <div className="main-page"> 
       <CloudinaryContext
         cloudName={props.cloudName}
         uploadPreset={props.uploadPreset}
       >
-        <Router history={history}>
+        <Router>
           <Switch>
             <Route exact path="/">
               <LandingPage></LandingPage>
             </Route>
-            <Route exact path="/products"  >
-              <ManageProdList></ManageProdList>
-            </Route>
-            {/* <Route exact path="/login">
-            <Login></Login>
-          </Route>
-          <Route exact path="/register">
-            <Register></Register>
-          </Route> */}
+            <PrivateAuthen exact path="/products" component={ManageProdList} user={userInfor}/> 
+            <PrivateAuthen exact path="/promotion" component={ManagePromotion} user={userInfor}/> 
           </Switch>
         </Router>
       </CloudinaryContext>
     </div>
   );
 }
+
 const mapStateToProps = (state) => {
   return {
       userInfor: state.authState
   };
 };
-
-//export default App;
 export default connect(mapStateToProps, null)(App);
+//export default App;

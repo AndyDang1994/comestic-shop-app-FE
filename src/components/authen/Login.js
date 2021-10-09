@@ -67,13 +67,6 @@ const mapStateToProps = (state) => {
     };
 };
   
-// const mapDispatchToProps = (dispatch) => {
-//     return {
-//         login: (loginState, history, setErrorHandler) => {
-//         dispatch(LoginAuthAction(loginState, history, setErrorHandler));
-//         },
-//     };
-// };
 
 const mapDispatchToProps =  {
     login : userActions.login

@@ -4,10 +4,12 @@ import { ActionTypes } from "../contant/action-types";
 const authState = {
   isLoggedIn: false,
   user: {
-    name: "",
-    expires_at: "",
-    jwttoken: "",
-    authorities: [],
+    userName: "",
+    fullname: "",
+    token: "",
+    authenFeature: [],
+    roles: [],
+    screenRole: [],
   },
 };
 const getAuthState = () => {

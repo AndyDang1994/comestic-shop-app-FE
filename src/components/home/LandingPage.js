@@ -1,6 +1,5 @@
 import React from "react";
 import Header from "../../layout/header/Header";
-import ManageProdList from '../managements/productManagement/ManageProdList'
 import Home from "./Home";
 
 function LandingPage() {
